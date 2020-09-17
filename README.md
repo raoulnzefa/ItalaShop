@@ -1,2 +1,2 @@
 # ItalaShop
-Shop Online with vue + vuetify
+Shop Online with vue + vue apollo + vuetify

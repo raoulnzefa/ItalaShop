@@ -10,7 +10,6 @@
                 <v-spacer></v-spacer>
 
                 <template>
-
                     <v-text-field class="mb-0" solo label="Search ..." prepend-inner-icon="mdi-magnify" style="max-width: 400px;     height: 32px;"></v-text-field>
                 </template>
 
@@ -62,7 +61,8 @@
         </v-col>
     </v-row>
 
-    <v-row>
+    <v-container class="grey lighten-5">
+        <v-row>
         <v-col cols="10" style="max-width: 1200px; margin: 0 auto;">
             <v-row>
                 <v-col cols="2">
@@ -79,38 +79,42 @@
                     </v-card>
                 </v-col>
                 <v-col clos="8">
-                    <v-card class="mx-auto my-12" max-width="274">
-                        <v-img height="300" src="http://assets.liverpool.com.mx/assets/images/categorias/damas/catst4003088.jpg"></v-img>
+                    <v-row class="justify-space-between">
+                        <v-card class="mb-10" max-width="274">
+                            <v-img height="300" src="http://assets.liverpool.com.mx/assets/images/categorias/damas/catst4003088.jpg"></v-img>
 
-                        <v-card-title class="pt-0">Cafe Badilico</v-card-title>
+                            <v-card-title class="pt-0">Cafe Badilico</v-card-title>
 
-                        <v-card-text>
-                            <v-row align="center" class="mx-0">
-                                <v-rating :value="4.5" color="amber" dense half-increments readonly size="14"></v-rating>
+                            <v-card-text>
+                                <v-row align="center" class="mx-0">
+                                    <v-rating :value="4.5" color="amber" dense half-increments readonly size="14"></v-rating>
 
-                                <div class="grey--text ml-4">4.5</div>
-                            </v-row>
-                        </v-card-text>
+                                    <div class="grey--text ml-4">4.5</div>
+                                </v-row>
+                            </v-card-text>
 
-                        <v-divider class="mx-4"></v-divider>
+                            <v-divider class="mx-4"></v-divider>
 
-                        <v-card-actions>
-                            <v-row class="justify-space-between align-center">
-                                <div class="grey--text ml-4">
-                                    $ 500.00
-                                </div>
-                                <v-btn class="mr-4" outlined small fab color="indigo">
-                                    <v-icon>mdi-plus</v-icon>
-                                </v-btn>
-                            </v-row>
-                        </v-card-actions>
-                    </v-card>
+                            <v-card-actions>
+                                <v-row class="justify-space-between align-center">
+                                    <div class="grey--text ml-4">
+                                        $ 500.00
+                                    </div>
+                                    <v-btn class="mr-4" outlined x-small fab color="indigo">
+                                        <v-icon >mdi-plus</v-icon>
+                                    </v-btn>
+                                </v-row>
+                            </v-card-actions>
+                        </v-card>
 
+                    </v-row>
                 </v-col>
             </v-row>
 
         </v-col>
     </v-row>
+    </v-container>
+    
 </v-container>
 </template>
 

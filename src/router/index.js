@@ -8,6 +8,11 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Home',
     component: () => import(/* webpackChunkName: "Home" */ '../views/Home.vue')
+  },
+  {
+    path: '/shopping-cart',
+    name: 'ShoppingCart',
+    component: () => import('../views/ShoppingCart.vue')
   }
 ]
 

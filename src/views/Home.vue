@@ -1,69 +1,42 @@
 <template>
-<v-container fluid class="m-0 p-0">
-    <v-row>
-        <v-col cols="10">
-            <v-app-bar absolute elevation="1" color="white" style="margin: 0 auto;">
-                <v-app-bar-nav-icon></v-app-bar-nav-icon>
+    <app-layout>
+        <template v-slot:carousel>
+            <v-row>
+                <v-col>
 
-                <v-toolbar-title>ITALA</v-toolbar-title>
+                    <v-card elevation="0" max-width="1200px" style="margin: 0 auto;" class="mt-10">
+                        <v-carousel cycle height="400" hide-delimiter-background show-arrows-on-hover>
+                            <v-carousel-item>
+                                <v-sheet height="100%">
+                                    <v-row class="fill-height" align="center" justify="center">
+                                        <v-img src="../../public/images/1.jpg"></v-img>
+                                    </v-row>
+                                </v-sheet>
+                            </v-carousel-item>
 
-                <v-spacer></v-spacer>
+                            <v-carousel-item>
+                                <v-sheet height="100%">
+                                    <v-row class="fill-height" align="center" justify="center">
+                                        <v-img src="../../public/images/2.jpg"></v-img>
+                                    </v-row>
+                                </v-sheet>
+                            </v-carousel-item>
 
-                <template>
-                    <v-text-field class="mb-0" solo label="Search ..." prepend-inner-icon="mdi-magnify" style="max-width: 400px;     height: 32px;"></v-text-field>
-                </template>
+                            <v-carousel-item>
+                                <v-sheet height="100%">
+                                    <v-row class="fill-height" align="center" justify="center">
+                                        <v-img src="../../public/images/3.jpg"></v-img>
+                                    </v-row>
+                                </v-sheet>
+                            </v-carousel-item>
+                        </v-carousel>
+                    </v-card>
 
-                <v-spacer></v-spacer>
+                </v-col>
+            </v-row>
+        </template>
 
-                <v-btn icon>
-                    <v-icon>mdi-account</v-icon>
-                </v-btn>
-
-                <v-btn icon>
-                    <v-icon>mdi-cart</v-icon>
-                </v-btn>
-
-            </v-app-bar>
-        </v-col>
-    </v-row>
-
-    <v-row>
-        <v-col>
-
-            <v-card elevation="0" max-width="1200px" style="margin: 0 auto;" class="mt-10">
-                <v-carousel cycle height="400" hide-delimiter-background show-arrows-on-hover>
-                    <v-carousel-item>
-                        <v-sheet height="100%">
-                            <v-row class="fill-height" align="center" justify="center">
-                                <v-img src="../../public/images/1.jpg"></v-img>
-                            </v-row>
-                        </v-sheet>
-                    </v-carousel-item>
-
-                    <v-carousel-item>
-                        <v-sheet height="100%">
-                            <v-row class="fill-height" align="center" justify="center">
-                                <v-img src="../../public/images/2.jpg"></v-img>
-                            </v-row>
-                        </v-sheet>
-                    </v-carousel-item>
-
-                    <v-carousel-item>
-                        <v-sheet height="100%">
-                            <v-row class="fill-height" align="center" justify="center">
-                                <v-img src="../../public/images/3.jpg"></v-img>
-                            </v-row>
-                        </v-sheet>
-                    </v-carousel-item>
-                </v-carousel>
-            </v-card>
-
-        </v-col>
-    </v-row>
-
-    <v-container class="grey lighten-5">
-        <v-row>
-        <v-col cols="10" style="max-width: 1200px; margin: 0 auto;">
+        <template v-slot:content>
             <v-row>
                 <v-col cols="2">
                     <v-card elevation="1" style="margin: 0 auto;">
@@ -81,7 +54,7 @@
                 <v-col clos="8">
                     <v-row class="justify-space-between">
                         <v-card class="mb-10" max-width="274">
-                            <v-img height="300" src="http://assets.liverpool.com.mx/assets/images/categorias/damas/catst4003088.jpg"></v-img>
+                            <v-img height="300" src="http://assets.liverpool.com.mx/assets/images/categorias/damas/catst4003088.jpg" lazy-src="http://assets.liverpool.com.mx/assets/images/categorias/damas/catst4003088.jpg"></v-img>
 
                             <v-card-title class="pt-0">Cafe Badilico</v-card-title>
 
@@ -110,19 +83,19 @@
                     </v-row>
                 </v-col>
             </v-row>
-
-        </v-col>
-    </v-row>
-    </v-container>
-    
-</v-container>
+        </template>
+    </app-layout>
 </template>
 
 <script>
 import gql from 'graphql-tag'
+import AppLayout from '../layouts/AppLayout'
 
 export default {
     name: 'Home',
+    components:{
+        AppLayout
+    },
     data() {
         return {
             slides: [
@@ -164,14 +137,3 @@ export default {
     },
 }
 </script>
-
-<style>
-.v-text-field.v-text-field--solo .v-input__control {
-    min-height: 32px;
-}
-
-.v-toolbar__content {
-    margin: 0 auto;
-    max-width: 1200px;
-}
-</style>

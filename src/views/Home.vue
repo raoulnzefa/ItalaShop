@@ -53,33 +53,8 @@
                 </v-col>
                 <v-col clos="8">
                     <v-row class="justify-space-between">
-                        <v-card class="mb-10" max-width="274">
-                            <v-img height="300" src="http://assets.liverpool.com.mx/assets/images/categorias/damas/catst4003088.jpg" lazy-src="http://assets.liverpool.com.mx/assets/images/categorias/damas/catst4003088.jpg"></v-img>
-
-                            <v-card-title class="pt-0">Cafe Badilico</v-card-title>
-
-                            <v-card-text>
-                                <v-row align="center" class="mx-0">
-                                    <v-rating :value="4.5" color="amber" dense half-increments readonly size="14"></v-rating>
-
-                                    <div class="grey--text ml-4">4.5</div>
-                                </v-row>
-                            </v-card-text>
-
-                            <v-divider class="mx-4"></v-divider>
-
-                            <v-card-actions>
-                                <v-row class="justify-space-between align-center">
-                                    <div class="grey--text ml-4">
-                                        $ 500.00
-                                    </div>
-                                    <v-btn class="mr-4" outlined x-small fab color="indigo">
-                                        <v-icon >mdi-plus</v-icon>
-                                    </v-btn>
-                                </v-row>
-                            </v-card-actions>
-                        </v-card>
-
+                        <product-card v-for="(product,index) in products" :key="index" :title="product.title" 
+                        :image="product.image" :rating="product.rating" :price="product.price"></product-card>
                     </v-row>
                 </v-col>
             </v-row>
@@ -90,11 +65,13 @@
 <script>
 import gql from 'graphql-tag'
 import AppLayout from '../layouts/AppLayout'
+import ProductCard from '../components/ProductCard'
 
 export default {
     name: 'Home',
     components:{
-        AppLayout
+        AppLayout,
+        ProductCard
     },
     data() {
         return {
@@ -123,7 +100,15 @@ export default {
                 },
             ],
             users: [],
-            user: null
+            user: null,
+            products:[
+                {
+                    title: 'Camisa blanca',
+                    image: 'http://assets.liverpool.com.mx/assets/images/categorias/damas/catst4003088.jpg',
+                    rating: 4.5,
+                    price: 700.00
+                }
+            ]
         }
     },
     apollo: {

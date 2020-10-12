@@ -12,8 +12,8 @@
                     <v-img min-height="150" min-width="250" max-height="150" max-width="250" src="http://assets.liverpool.com.mx/assets/images/categorias/damas/catst4003088.jpg"></v-img>
                     
                     <v-card-text class="ml-3 pt-0">
-                        <router-link to="" class="d-block text-md-h6 font-weight-regular" style="color: #424242; text-decoration: none;">Camisa blanca para mujer muy bonita</router-link>
-                        <router-link to="" class="d-block" style="color: #03b; text-decoration: none">Eliminar</router-link>
+                        <router-link to="" class="d-block text-md-h6 font-weight-regular text-decoration-none" style="color: #424242;">Camisa blanca para mujer muy bonita</router-link>
+                        <router-link to="" class="d-block text-decoration-none" style="color: #03b;">Eliminar</router-link>
                     </v-card-text>
                     
                     <v-card-text class="pt-0" style="width: 30% !important;">

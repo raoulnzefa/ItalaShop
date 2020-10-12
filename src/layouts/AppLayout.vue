@@ -10,7 +10,7 @@
                     <v-spacer></v-spacer>
 
                     <template>
-                        <v-text-field class="mb-0" solo label="Search ..." prepend-inner-icon="mdi-magnify" style="max-width: 400px;     height: 32px;"></v-text-field>
+                        <v-text-field class="mb-0" color="secondary lighten-5" outlined single-line label="Search ..." prepend-inner-icon="mdi-magnify" style="max-width: 400px; height: 52px !important;"></v-text-field>
                     </template>
 
                     <v-spacer></v-spacer>

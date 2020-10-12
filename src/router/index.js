@@ -13,6 +13,11 @@ Vue.use(VueRouter)
     path: '/shopping-cart',
     name: 'ShoppingCart',
     component: () => import('../views/ShoppingCart.vue')
+  },
+  {
+    path: '/products-details',
+    name: 'ProductsDetails',
+    component: () => import('../views/ProductsDetails.vue')
   }
 ]
 

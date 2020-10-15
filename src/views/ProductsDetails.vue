@@ -55,6 +55,36 @@
                     </v-btn>
                 </v-card-text>
             </v-card>
+
+            <v-card flat>
+                <v-card-title class="text-lg-h5 pl-0 mt-5">Caracteristicas</v-card-title>
+                <v-card-text class="subtitle-1 pl-0 mt-2">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500</v-card-text>
+            </v-card>
+
+            <v-simple-table light>
+            <template v-slot:default>
+            <thead>
+                <tr>
+                    <th class="text-left">
+                        Caracteristica
+                    </th>
+                    <th class="text-left">
+                        
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                v-for="item in features"
+                :key="item.name"
+                style="border-top: 1px solid #757575;"
+                >
+                <td class="grey lighten-3">{{ item.feature }}</td>
+                <td>{{ item.valor }}</td>
+                </tr>
+            </tbody>
+            </template>
+        </v-simple-table>
         </template>
     </app-layout>
 </template>
@@ -65,7 +95,25 @@
     export default {
         data() {
             return {
-                quantity: 0
+                quantity: 0,
+                features: [
+                    {
+                        feature: 'Tela',
+                        valor: 'Tela de algodon'
+                    },
+                    {
+                        feature: 'Colores',
+                        valor: 'Rojos, Blanco'
+                    },
+                    {
+                        feature: 'Diseño',
+                        valor: 'Unico'
+                    },
+                    {
+                        feature: 'Disponible',
+                        valor: '10'
+                    },
+                ]
             }
         },
         components:{

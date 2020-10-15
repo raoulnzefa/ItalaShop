@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-card class="mb-10" max-width="274">
+        <v-card class="mb-10" max-width="274" outlined>
             <v-img height="300" :src="image"></v-img>
 
             <v-card-title class="pt-0">{{ title }}</v-card-title>

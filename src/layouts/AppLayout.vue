@@ -2,10 +2,10 @@
     <v-container fluid class="m-0 p-0">
         <v-row>
             <v-col cols="10">
-                <v-app-bar absolute flat dark style="margin: 0 auto;">
+                <v-app-bar fixed flat dark style="margin: 0 auto;">
                     <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-                    <v-toolbar-title>ITALA</v-toolbar-title>
+                    <router-link to="/" class="text-xl-h5 text-decoration-none white--text">ITALA</router-link>
 
                     <v-spacer></v-spacer>
 

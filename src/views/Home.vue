@@ -38,12 +38,12 @@
 
         <template v-slot:content>
             <v-row>
-                <v-col cols="2">
-                    <v-card elevation="1" style="margin: 0 auto;">
-                        <v-navigation-drawer floating permanent>
-                            <v-list dense rounded>
+                <v-col cols="2" class="pl-0">
+                    <v-card outlined>
+                        <v-navigation-drawer>
+                            <v-list style="padding: 0 !important;">
                                 <v-list-item v-for="item in items" :key="item.title" link>
-                                    <v-list-item-content style="border-bottom: 1px solid black;">
+                                    <v-list-item-content>
                                         <v-list-item-title class="text-md-body-1">{{ item.title }}</v-list-item-title>
                                     </v-list-item-content>
                                 </v-list-item>

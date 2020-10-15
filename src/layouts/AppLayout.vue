@@ -5,7 +5,7 @@
                 <v-app-bar fixed flat dark style="margin: 0 auto;">
                     <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-                    <v-toolbar-title>ITALA</v-toolbar-title>
+                    <router-link to="/" class="text-xl-h5 text-decoration-none white--text">ITALA</router-link>
 
                     <v-spacer></v-spacer>
 

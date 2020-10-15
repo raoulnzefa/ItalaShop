@@ -1,15 +1,15 @@
 <template>
     <app-layout>
         <template v-slot:content>
-            <v-card-tex class="text-xl-h5 mt-10">Detalles</v-card-tex>
-            <v-card class="d-flex">
+            <v-card-text class="text-xl-h5 mt-10 pl-0">Detalles de producto</v-card-text>
+            <v-card class="d-flex" outlined>
                 <v-card-text class="d-flex">
-                    <v-img min-height="400" min-width="400" max-height="400" max-width="400" class="w-full h-full" src="http://assets.liverpool.com.mx/assets/images/categorias/damas/catst4003088.jpg"></v-img>
-                    <div class="ml-3">
+                    <div class="mr-3">
                         <v-img min-height="100" min-width="100" max-height="100" max-width="100" class="w-full h-full mb-2" src="http://assets.liverpool.com.mx/assets/images/categorias/damas/catst4003088.jpg"></v-img>
                         <v-img min-height="100" min-width="100" max-height="100" max-width="100" class="w-full h-full mb-2" src="http://assets.liverpool.com.mx/assets/images/categorias/damas/catst4003088.jpg"></v-img>
                         <v-img min-height="100" min-width="100" max-height="100" max-width="100" class="w-full h-full mb-2" src="http://assets.liverpool.com.mx/assets/images/categorias/damas/catst4003088.jpg"></v-img>
                     </div>
+                    <v-img min-height="400" min-width="400" max-height="400" max-width="400" class="w-full h-full" src="http://assets.liverpool.com.mx/assets/images/categorias/damas/catst4003088.jpg"></v-img>
                 </v-card-text>
                 <v-card-text>
                     <h2>Blusa de color bonita</h2>

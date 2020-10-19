@@ -62,35 +62,42 @@
             </v-card>
 
             <v-simple-table light>
-            <template v-slot:default>
-            <thead>
-                <tr>
-                    <th class="text-left">
-                        Caracteristica
-                    </th>
-                    <th class="text-left">
-                        
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr
-                v-for="item in features"
-                :key="item.name"
-                style="border-top: 1px solid #757575;"
-                >
-                <td class="grey lighten-3">{{ item.feature }}</td>
-                <td>{{ item.valor }}</td>
-                </tr>
-            </tbody>
-            </template>
-        </v-simple-table>
+                <template v-slot:default>
+                <thead>
+                    <tr>
+                        <th class="text-left text-md-body-1 pl-0">
+                            Caracteristica
+                        </th>
+                        <th class="text-left">
+                            
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                    v-for="item in features"
+                    :key="item.name"
+                    style="border-top: 1px solid #757575;"
+                    >
+                    <td class="grey lighten-3">{{ item.feature }}</td>
+                    <td>{{ item.valor }}</td>
+                    </tr>
+                </tbody>
+                </template>
+            </v-simple-table>
+
+             <v-card flat>
+                <v-card-title class="pl-0 mt-3">Comentarios</v-card-title>
+
+                <comments rating="4.5" comment="Este es una prueba de commentario, todo bien"></comments>
+             </v-card>
         </template>
     </app-layout>
 </template>
 
 <script>
     import AppLayout from '../layouts/AppLayout'
+    import Comments from '../components/Comments'
 
     export default {
         data() {
@@ -113,11 +120,12 @@
                         feature: 'Disponible',
                         valor: '10'
                     },
-                ]
+                ],
             }
         },
         components:{
-            AppLayout
+            AppLayout,
+            Comments
         },
         methods:{
             increaseQuantity(){

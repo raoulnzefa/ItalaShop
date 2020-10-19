@@ -18,6 +18,11 @@ Vue.use(VueRouter)
     path: '/products-details',
     name: 'ProductsDetails',
     component: () => import('../views/ProductsDetails.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/Login.vue')
   }
 ]
 

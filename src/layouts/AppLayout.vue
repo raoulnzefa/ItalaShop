@@ -5,7 +5,7 @@
                 <v-app-bar fixed flat dark style="margin: 0 auto;">
                     <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-                    <router-link to="/" class="text-xl-h5 text-decoration-none white--text">ITALA</router-link>
+                    <v-btn depressed href="/" class="text-xl-h5 text-decoration-none white--text">ITALA</v-btn>
 
                     <v-spacer></v-spacer>
 

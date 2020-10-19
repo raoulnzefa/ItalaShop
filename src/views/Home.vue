@@ -3,29 +3,28 @@
         <template v-slot:carousel>
             <v-row>
                 <v-col>
-
                     <v-card elevation="0" max-width="1200px" style="margin: 0 auto;" class="mt-10">
                         <v-carousel cycle height="400" hide-delimiter-background show-arrows-on-hover>
                             <v-carousel-item>
-                                <v-sheet height="100%">
+                                <v-sheet max-height="400">
                                     <v-row class="fill-height" align="center" justify="center">
-                                        <v-img src="../../public/images/1.jpg"></v-img>
+                                        <v-img max-height="400" min-height="400" min-width="100%" src="../../public/images/1.jpg"></v-img>
                                     </v-row>
                                 </v-sheet>
                             </v-carousel-item>
 
                             <v-carousel-item>
-                                <v-sheet height="100%">
+                                <v-sheet max-height="400">
                                     <v-row class="fill-height" align="center" justify="center">
-                                        <v-img src="../../public/images/2.jpg"></v-img>
+                                        <v-img max-height="400" min-height="400" min-width="100%" src="../../public/images/2.jpg"></v-img>
                                     </v-row>
                                 </v-sheet>
                             </v-carousel-item>
 
                             <v-carousel-item>
-                                <v-sheet height="100%">
+                                <v-sheet max-height="400">
                                     <v-row class="fill-height" align="center" justify="center">
-                                        <v-img src="../../public/images/3.jpg"></v-img>
+                                        <v-img max-height="400" min-height="400" min-width="100%" src="../../public/images/3.jpg"></v-img>
                                     </v-row>
                                 </v-sheet>
                             </v-carousel-item>

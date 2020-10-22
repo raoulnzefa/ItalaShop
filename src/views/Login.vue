@@ -7,13 +7,14 @@
                         <v-card-text>
                             <v-form ref="form" v-model="valid">
                                 <v-text-field
-                                    label="Email"
+                                    label="User name"
                                     type="text"
                                     required
                                     rounded
                                     dense
                                     filled
                                     color="secondary"
+                                    v-model="user.username"
                                 ></v-text-field>
  
                                 <v-text-field
@@ -24,12 +25,13 @@
                                     dense
                                     filled
                                     color="secondary"
+                                    v-model="user.password"
                                 ></v-text-field>
                             </v-form>
                         </v-card-text>
                         <v-card-actions>
                             <div class="flex-grow-1"></div>
-                            <v-btn dark :disabled="!valid" @click="login">Login</v-btn>
+                            <v-btn dark :disabled="!valid" @click="login(user)">Login</v-btn>
                             <v-btn dark link to="">Register</v-btn>
                         </v-card-actions>
                     </v-card>
@@ -43,16 +45,19 @@
 </template>
 
 <script>
+    import {mapActions} from 'vuex'
     export default{
         data(){
             return{
-                valid: true
+                valid: true,
+                user:{
+                    username: '',
+                    password: ''
+                }
             }
         },
         methods:{
-            login(){
-
-            }
+            ...mapActions(['login'])
         }
     }
 </script>

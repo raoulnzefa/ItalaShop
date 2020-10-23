@@ -46,6 +46,8 @@
 
 <script>
     import {mapActions} from 'vuex'
+    import gql from 'graphql-tag'
+
     export default{
         data(){
             return{
@@ -57,7 +59,27 @@
             }
         },
         methods:{
-            ...mapActions(['login'])
+            async login(){
+                const response = await this.$apollo.mutate({
+                    mutation: gql`mutation($username: String!,
+                        $password: String!){
+                        login(input: {
+                        username: $username,
+                        password: $password
+                        }){
+                            access_token
+                        }
+                    }`,
+                    variables:{
+                        username: this.user.username,
+                        password: this.user.password
+                    }
+                })
+
+                console.log(response.data.token)
+                this.commitToken(response.data.token)
+            },
+            ...mapActions(['commitToken'])
         }
     }
 </script>

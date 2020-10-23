@@ -10,6 +10,7 @@ import ApolloClient from 'apollo-client'
 import {createHttpLink} from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 
+Vue.use(VueApollo);
 const httpLink = createHttpLink({
     // You should use an absolute URL here
     uri: 'http://localhost:8000/graphql',
@@ -27,13 +28,12 @@ const apolloProvider = new VueApollo({
     defaultClient: apolloClient,
 })
 
-Vue.use(VueApollo);
 Vue.config.productionTip = false
 
 new Vue({
+  apolloProvider,
   router,
   store,
   vuetify,
-  apolloProvider,
   render: h => h(App)
 }).$mount('#app')

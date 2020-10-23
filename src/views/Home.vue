@@ -110,14 +110,23 @@ export default {
             ]
         }
     },
-    apollo: {
-        // Simple query that will update the 'hello' vue property
-        user: gql `
-        query{
-            user{
-                email
-            }
-        }`,
+    methods:{
+        async getUser(){
+        const response = await this.$apollo.query({
+            query: gql`query{
+                user{
+                    email
+                }
+            }`
+        })
+
+        console.log(response)
+
+        }
     },
+    created(){
+        this.getUser()
+    }
+
 }
 </script>

@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    token: null
+    token: localStorage.getItem('token') || null
   },
   mutations: {
     setToken(state,payload){
@@ -22,6 +22,8 @@ export default new Vuex.Store({
 
       if(token){
         commit('setToken',token)
+      }else{
+        commit('setToken',null)
       }
     }
   },

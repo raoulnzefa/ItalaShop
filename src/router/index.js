@@ -6,6 +6,11 @@ Vue.use(VueRouter)
 
   const routes = [
   {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/Login.vue')
+  },
+  {
     path: '/',
     name: 'Home',
     component: () => import(/* webpackChunkName: "Home" */ '../views/Home.vue'),
@@ -22,11 +27,6 @@ Vue.use(VueRouter)
     name: 'ProductsDetails',
     component: () => import('../views/ProductsDetails.vue'),
     meta: {requireAuth: true}
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: () => import('../views/Login.vue')
   }
 ]
 
@@ -37,9 +37,9 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const authenticated = to.matched.some(record => record.meta.requireAuth)
-  
-  if(authenticated && store.state.token === null){
+  const requireAuth = to.matched.some(record => record.meta.requireAuth)
+
+  if(requireAuth && store.state.token === null){
     next({name:'Login'})
   }else{
     next()

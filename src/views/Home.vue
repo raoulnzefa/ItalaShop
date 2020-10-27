@@ -65,6 +65,7 @@
 import gql from 'graphql-tag'
 import AppLayout from '../layouts/AppLayout'
 import ProductCard from '../components/ProductCard'
+import {mapState} from 'vuex'
 
 export default {
     name: 'Home',
@@ -114,19 +115,23 @@ export default {
         async getUser(){
         const response = await this.$apollo.query({
             query: gql`query{
-                user{
-                    email
+                users{
+                     data{
+                        name,
+                        email
+                    }
                 }
             }`
         })
 
-        console.log(response)
-
+        this.users = response.data.users.data
         }
     },
     created(){
         this.getUser()
+    },
+    computed:{
+        ...mapState['token']
     }
-
 }
 </script>

@@ -7,8 +7,8 @@
                         <v-card-text>
                             <v-form ref="form" v-model="valid">
                                 <v-text-field
-                                    label="User name"
-                                    type="text"
+                                    label="Email"
+                                    type="email"
                                     required
                                     rounded
                                     dense
@@ -31,7 +31,7 @@
                         </v-card-text>
                         <v-card-actions>
                             <div class="flex-grow-1"></div>
-                            <v-btn dark :disabled="!valid" @click="login(user)">Login</v-btn>
+                            <v-btn dark :disabled="!valid" @click="login()">Login</v-btn>
                             <v-btn dark link to="">Register</v-btn>
                         </v-card-actions>
                     </v-card>
@@ -76,8 +76,7 @@
                     }
                 })
 
-                console.log(response.data.token)
-                this.commitToken(response.data.token)
+                this.commitToken(response.data.login.access_token)
             },
             ...mapActions(['commitToken'])
         }

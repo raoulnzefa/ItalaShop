@@ -1,4 +1,4 @@
-<template>
+ <template>
     <v-container fluid class="m-0 p-0" style="height:100vh;">
         <v-row>
             <v-col cols="10">
@@ -15,9 +15,33 @@
 
                     <v-spacer></v-spacer>
 
-                    <v-btn icon>
-                        <v-icon>mdi-account</v-icon>
-                    </v-btn>
+                    <v-menu offset-y left transition="scale-transition">
+                        <template v-slot:activator="{ attrs, on }">
+                            <v-btn
+                            class="white--text ma-8"
+                            v-bind="attrs"
+                            v-on="on"
+                            icon
+                            >
+                            <v-icon>mdi-account</v-icon>
+                            </v-btn>
+                        </template>
+
+                        <v-list>
+                            <v-list-item link href="/login" v-if="$store.state.token === null">
+                                <v-list-item-title v-text="'Iniciar sesión'"></v-list-item-title>
+                            </v-list-item>
+                            <v-list-item link v-if="$store.state.token !== null">
+                                <v-list-item-title v-text="'Nuevo producto'"></v-list-item-title>
+                            </v-list-item>
+                            <v-list-item link v-if="$store.state.token !== null">
+                                <v-list-item-title v-text="'Configuración'"></v-list-item-title>
+                            </v-list-item>
+                            <v-list-item link @click="logout" v-if="$store.state.token !== null">
+                                <v-list-item-title v-text="'Cerrar sesión'"></v-list-item-title>
+                            </v-list-item>
+                        </v-list>
+                    </v-menu>
 
                     <v-btn icon href="/shopping-cart">
                         <v-icon>mdi-cart</v-icon>
@@ -71,6 +95,9 @@
 </template>
 
 <script>
+    import gql from 'graphql-tag'
+    import {onLogout} from '../vue-apollo.js'
+
     export default{
         data(){
             return{
@@ -79,7 +106,21 @@
                     'mdi-twitter',
                     'mdi-linkedin',
                     'mdi-instagram',
-                ],
+                ]
+            }
+        },
+        methods:{
+            async logout(){
+                await this.$apollo.mutate({
+                    mutation: gql`mutation{
+                        logout{
+                            status
+                        }
+                    }`
+                })
+
+                onLogout(this.$apollo.provider.defaultClient)
+                this.$router.push('/login')
             }
         }
     }

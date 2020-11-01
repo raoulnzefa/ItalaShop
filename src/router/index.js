@@ -13,8 +13,7 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: () => import(/* webpackChunkName: "Home" */ '../views/Home.vue'),
-    meta: {requireAuth: true}
+    component: () => import('../views/Home.vue')
   },
   {
     path: '/shopping-cart',

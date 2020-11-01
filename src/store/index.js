@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    token: localStorage.getItem('token') || null
+    token: localStorage.getItem('apollo-token') || null
   },
   mutations: {
     setToken(state,payload){
@@ -15,10 +15,9 @@ export default new Vuex.Store({
   actions: {
     commitToken({commit},token){
       commit('setToken', token)
-      localStorage.setItem('token', token)
     },
     getToken({commit}){
-      const token = localStorage.getItem('token')
+      const token = localStorage.getItem('apollo-token')
 
       if(token){
         commit('setToken',token)

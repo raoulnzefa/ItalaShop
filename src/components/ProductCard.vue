@@ -1,9 +1,10 @@
 <template>
     <div>
         <v-card class="mb-10" max-width="274" outlined>
-            <v-img height="300" :src="image"></v-img>
+            <v-img height="300" src="../../public/images/3.jpg"></v-img>
 
-            <v-card-title class="pt-0">{{ title }}</v-card-title>
+            <v-card-title class="pt-0 pb-1">{{ title }}</v-card-title>
+            <div class="ml-4 pt-0" :class="[quantity > 0 ? 'green--text' :'red--text']">{{ quantity > 0 ? 'Disponible' :'Agotada' }}</div>
 
             <v-card-text>
                 <v-row align="center" class="mx-0">
@@ -32,7 +33,7 @@
 <script>
     export default {
         name: 'product-card',
-        props:['title','image','rating','price'],
+        props:['title','rating','price','quantity'],
         data(){
             return {
 

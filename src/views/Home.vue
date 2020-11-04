@@ -52,8 +52,8 @@
                 </v-col>
                 <v-col clos="8">
                     <v-row class="justify-space-between">
-                        <product-card v-for="(product,index) in products" :key="index" :title="product.title" 
-                        :image="product.image" :rating="product.rating" :price="product.price"></product-card>
+                        <product-card v-for="(product,index) in products" :key="index" :title="product.name" 
+                        :rating="rating" :price="product.price" :quantity="product.quantity"></product-card>
                     </v-row>
                 </v-col>
             </v-row>
@@ -80,6 +80,8 @@ export default {
                 '../../public/images/2.jpg',
                 '../../public/images/3.jpg',
             ],
+            provisionalimage: '../../public/images/3.jpg',
+            rating: 4.5,
             items: [{
                     title: 'Camisas'
                 },
@@ -101,34 +103,49 @@ export default {
             ],
             users: [],
             user: null,
-            products:[
-                {
-                    title: 'Camisa blanca',
-                    image: 'http://assets.liverpool.com.mx/assets/images/categorias/damas/catst4003088.jpg',
-                    rating: 4.5,
-                    price: 700.00
-                }
-            ]
+            products:[]
         }
     },
     methods:{
         async getUser(){
-        const response = await this.$apollo.query({
-            query: gql`query{
-                users{
-                     data{
+            const response = await this.$apollo.query({
+                query: gql`query{
+                    users{
+                        data{
+                            name,
+                            email
+                        }
+                    }
+                }`
+            })
+
+            this.users = response.data.users.data
+        },
+        async getProducts(){
+            const response = await this.$apollo.query({
+                query: gql`query{
+                products{
+                    paginatorInfo{
+                        currentPage,
+                        perPage,
+                        total
+                    },
+                    data{
+                        id,
                         name,
-                        email
+                        price,
+                        quantity
                     }
                 }
-            }`
-        })
+                }`
+            })
 
-        this.users = response.data.users.data
-        }
+            this.products = response.data.products.data
+        },
     },
     created(){
         this.getUser()
+        this.getProducts()
     },
     computed:{
         ...mapState['token']
